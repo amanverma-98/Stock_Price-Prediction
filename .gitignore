@@ -1,0 +1,5 @@
+.env
+__pycache__/
+*.pyc
+stock_dl_model.h5
+models/

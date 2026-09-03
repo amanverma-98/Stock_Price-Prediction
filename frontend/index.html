@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10231f">
+  <title>Northstar | Stock Forecasting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Northstar home">
+        <span class="brand-mark" aria-hidden="true">↗</span>
+        <span>northstar<span class="brand-dot">.</span></span>
+      </a>
+      <div class="topbar-note"><span class="status-dot"></span> LSTM forecasting engine online</div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Market intelligence / 01</p>
+          <h1>Read the next<br><em>market move.</em></h1>
+          <p class="hero-text">Explore a 60-trading-day forecast built from recent market history and a trained deep learning model.</p>
+        </div>
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit-line orbit-line-one"></div>
+          <div class="orbit-line orbit-line-two"></div>
+          <div class="orbit-center"><span>60</span><small>days out</small></div>
+          <span class="orbit-label label-top">MODEL / LSTM</span>
+          <span class="orbit-label label-bottom">SIGNAL / EXPLORE</span>
+        </div>
+      </section>
+
+      <section class="workspace" aria-labelledby="analysis-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Forecast workspace</p>
+            <h2 id="analysis-title">Choose a market to analyze</h2>
+          </div>
+          <p class="last-updated" id="last-updated">Waiting for a symbol</p>
+        </div>
+
+        <form class="search-panel" id="stock-form">
+          <label for="stock-input">Ticker symbol</label>
+          <div class="search-row">
+            <div class="input-wrap"><span aria-hidden="true">⌕</span><input id="stock-input" name="stock" value="TCS.NS" autocomplete="off" spellcheck="false" placeholder="e.g. AAPL or TCS.NS" required></div>
+            <button type="submit" id="analyze-button"><span>Run forecast</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+          </div>
+          <div class="examples"><span>Try</span><button type="button" class="symbol-chip" data-symbol="AAPL">AAPL</button><button type="button" class="symbol-chip" data-symbol="MSFT">MSFT</button><button type="button" class="symbol-chip" data-symbol="RELIANCE.NS">RELIANCE.NS</button><button type="button" class="symbol-chip" data-symbol="INFY.NS">INFY.NS</button></div>
+        </form>
+
+        <div class="notice" id="notice" role="status" aria-live="polite"></div>
+
+        <div class="results" id="results" hidden>
+          <div class="results-header">
+            <div><p class="eyebrow">Analysis complete</p><h2 id="result-title">TCS.NS <span>forecast</span></h2></div>
+            <a id="csv-link" class="text-link" href="#" download>Download CSV <span>↓</span></a>
+          </div>
+          <div class="metric-grid">
+            <article class="metric"><p>Last market date</p><strong id="last-date">—</strong><span>Latest available close</span></article>
+            <article class="metric"><p>Forecast horizon</p><strong>60 <small>sessions</small></strong><span>Business days ahead</span></article>
+            <article class="metric metric-accent"><p>Day 60 estimate</p><strong id="day-sixty">—</strong><span id="change-label">Model projection</span></article>
+          </div>
+          <div class="analysis-grid">
+            <article class="chart-card"><div class="card-heading"><div><p class="eyebrow">Trajectory</p><h3>Predicted closing price</h3></div><span class="chart-badge">60D / DAILY</span></div><div class="chart-frame"><img id="prediction-chart" alt="Historical and predicted stock closing prices"></div></article>
+            <article class="table-card"><div class="card-heading"><div><p class="eyebrow">Forward view</p><h3>First 10 sessions</h3></div></div><div class="table-scroll"><table><thead><tr><th>Date</th><th>Predicted close</th></tr></thead><tbody id="prediction-rows"></tbody></table></div></article>
+          </div>
+          <p class="disclaimer">Forecasts are model outputs, not financial advice. Market conditions can change quickly.</p>
+        </div>
+      </section>
+    </main>
+    <footer><span>northstar.</span><span>Yahoo Finance data · Deep learning forecast</span></footer>
+  </div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
