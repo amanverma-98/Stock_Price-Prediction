@@ -18,6 +18,17 @@ Live Application:
 * Docker-ready deployment
 * Cloud deployment on Render
 
+## Docker
+
+Build and run the API container:
+
+```bash
+docker build -t stock-price-prediction .
+docker run --rm -p 8000:8000 stock-price-prediction
+```
+
+Open the API at `http://localhost:8000/docs`. The container uses Python 3.11, TensorFlow 2.15, one Gunicorn worker, and Render's `$PORT` when deployed there.
+
 ## 🛠️ Tech Stack
 
 ### Frontend
