@@ -3,3 +3,4 @@ __pycache__/
 *.pyc
 stock_dl_model.h5
 models/
+TCS.NS_data.csv
