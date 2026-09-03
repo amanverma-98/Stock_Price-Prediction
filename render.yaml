@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: stock-price-prediction-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /
+    autoDeploy: true

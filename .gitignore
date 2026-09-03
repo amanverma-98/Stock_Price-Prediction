@@ -2,3 +2,4 @@
 __pycache__/
 *.pyc
 TCS.NS_data.csv
+venv/
